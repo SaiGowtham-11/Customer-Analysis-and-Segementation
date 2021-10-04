@@ -1,20 +1,13 @@
 
 # Discover Malicious Websites Using Data Mining Algorithms
 
-### Srinivas Gutta - 015357758 ###
+[Srinivas Gutta] (https://github.com/97gutta)
 
-### Sai Gowtham Ande - 015246023 ###
+[Sai Gowtham Ande] (https://github.com/SaiGowtham-11)
 
-### Manish Mapakshi - 015926729 ###
+[Manish Mapakshi] (https://github.com/manishm96)
 
-### Pratibha Awasthi - 015215655 ###
-[Srinivas Gutta] (https://github.com/devkisdesai)
-
-[Sai Gowtham Ande] (https://github.com/priyankamoorthysjsu)
-
-[Manish Mapakshi] (https://github.com/pauljmello)
-
-[Pratibha Awasthi] (https://github.com/vschalamolu9)
+[Pratibha Awasthi] (https://github.com/PratibhaAwasthi)
 
 ### __What data you’ll use and where you’ll get it?__ ###
 
