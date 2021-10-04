@@ -8,6 +8,13 @@
 ### Manish Mapakshi - 015926729 ###
 
 ### Pratibha Awasthi - 015215655 ###
+[Srinivas Gutta] (https://github.com/devkisdesai)
+
+[Sai Gowtham Ande] (https://github.com/priyankamoorthysjsu)
+
+[Manish Mapakshi] (https://github.com/pauljmello)
+
+[Pratibha Awasthi] (https://github.com/vschalamolu9)
 
 ### __What data you’ll use and where you’ll get it?__ ###
 
