@@ -16,6 +16,7 @@ header-includes: |
 Phishing is a deceptive practice in which an attacker attempts to obtain sensitive information from a victim. Emails, text messages, and websites are commonly used in these types of assaults. Phishing websites, which are on the rise these days, have the same appearance as real websites. Their backend, on the other hand, is geared to harvest sensitive information provided by the victim. The machine learning community, which has constructed models and performed classifications of phishing websites, has recently become interested in discovering and detecting phishing websites. This research includes two dataset versions with 58,645 and 88,647 websites categorized as real or fraudulent, respectively. These files contain a collection of legitimate and phishing website examples. Each website is identified by a collection of characteristics that indicate whether it is real or not. Thus, data can be used as a source of information in the machine learning process.
 
 # Data Description
+
 The data in this presentation was gathered and compiled to develop and analyze several categorization algorithms for detecting phishing websites using URL characteristics, URL resolving metrics and external services. Six groups of attributes can be found in the prepared dataset:  
 
 * attributes based on the whole URL properties 
@@ -35,26 +36,22 @@ The dataset has 111 features in total, except the target phishing attribute, whi
 
 
 # Methods
-Our data set consists of features like quantity of character's in URL, length of URL, parameters, and more, mainly numerical or categorical datatype. During the analysis, it was observed that the data set consists of '-1' as a value which the data authors have not described. Therefore, it generated two schools of belief in the group. 
-
-1. The features mentioned in the data set do not make sense under negative values. For example, the length of the URL can never    be negative. Hence, the negative values should be considered as missing data.
-2. A considerable data involves or includes -1. Removing such data will compromise the accuracy of the result, and hence the -1    should be considered.
-Hence, this write-up will follow two ways of analyzing the data.
 
 ## Method 1
+
 ## Data Preprocessing
-The following are the sequential steps which we followed for the data preprocessing:
 
-1. Dropping the duplicate rows.
-2. Dropping features that have single unique values through out the column.
-3. Dropping the features which have atleast 80% of data as -1. Most of these features are attributes based on the URL  parameters.
-4. Replacing the -1 values with NAN values.
+It is the process of transforming raw data into an understandable format. Data pre-processing is used to enhance the quality of the data for future modeling purposes. Our dataset consists of imbalanced data. Several methods have been used in this step to clean and increase the quality of the data. The methods are as follows:
 
-* Missing Data
+### Feature Selection using Variance Threshold:
+There are several features that consist of duplicate values in it’s columns. These values have to be dropped to reduce the dimensionality. We have used a method called “Variance Threshold” for feature selection. Variance Threshold sets up a threshold value and any feature whose variance doesn’t meet the threshold. By default, it removes all the zero-variance features. In this model, there are 13 features which don't meet the threshold and these features are dropped.
+
+### Eliminating Missing Values:
+Most of the features in the data have “-1” as a value. URL attributes can never have negative values. For example, features like quantity, length and params can never be negative. It is highly illogical to consider these negative values. These “-1” values are considered as missing values here. We calculated the percentage of “-1”  values in each and every feature. Features which have more than 80% of its values as “-1” are dropped. Later, all the other features consisting of “-1” values are replaced with “NAN”. As you can see in the figure below, the missing number library is used to plot all the missing values. It can clearly be noted that a lot of params values are missing. All the “params” features consisting of missing values are dropped.
 
 <img src="https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/missingdata.png?raw=true" width="500" height="500" >
 
-5. We can infer from the above fig.5 that we still have missing values. To deal with these missing data we can use different      imputation techniques such as Mean/Median/Mode imputation or use imputer algorithms like KNNimputer(), MissForest().  We        have decided to approach this problem by using both the Mean mpuation and KNN imputation and later compare results.
+From the above figure, we can understand that some missing values still exist. To deal with these missing data we can use different imputation techniques such as Mean/Median/Mode imputation or use imputer algorithms like KNNimputer(), MissForest().  We have decided to approach this problem by using both the Mean impuation and KNN imputation and later compare results.
 
 ## KNN Imputed Data Analysis:
 1. The Null data is imputed using KNN imputer with n_neighbhors:3. The distance measure used is euclidean distance.
