@@ -37,9 +37,9 @@ The dataset has 111 features in total, except the target phishing attribute, whi
 
 # Methods
 
-## Method 1
+## Method 1:
 
-## Data Preprocessing
+## Data Preprocessing:
 
 It is the process of transforming raw data into an understandable format. Data pre-processing is used to enhance the quality of the data for future modeling purposes. Our dataset consists of imbalanced data. Several methods have been used in this step to clean and increase the quality of the data. The methods are as follows:
 
