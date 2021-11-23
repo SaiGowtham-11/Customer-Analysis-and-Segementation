@@ -27,11 +27,11 @@ The data in this presentation was gathered and compiled to develop and analyze s
 
 As shown in Figure 1, the first group is based on the values of the characteristics on the entire URL string, but the values of the next four groups are based on specific sub-strings. The final set of attributes is based on URL resolve metrics as well as external services like Google's search index.
 
-![Separation of the whole URL string into sub-strings](./images/SeparationofthewholeURLstringintosub-strings.jpg)
+![Separation of the whole URL string into sub-strings](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/SeparationofthewholeURLstringintosubstrings.jpg?raw=true)
 
 The dataset has 111 features in total, except the target phishing attribute, which indicates if the instance is legitimate (value 0) or phishing (value 1).  We have two versions of the dataset, one with 58,645 occurrences with a more or less balanced balance between the target groups, with 30,647 instances categorized as phishing websites and 27,998 instances labeled as legitimate. The second dataset has 88,647 cases, with 30,647 instances tagged as phishing and 58,000 instances identified as valid, with the goal of simulating a real-world situation in which there are more legitimate websites present. We have used dataset_small for further analysis and model building as it has more balanced classes.
 
-![The distribution between classes for both dataset variations.](images/Thedistributionbetweenclassesforbothdatasetvariations.jpg)
+<img src="https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/Thedistributionbetweenclassesforbothdatasetvariations.jpg?raw=true" width="500" height="500" >
 
 
 # Methods
@@ -47,11 +47,12 @@ The following are the sequential steps which we followed for the data preprocess
 
 1. Dropping the duplicate rows.
 2. Dropping features that have single unique values through out the column.
-3. Dropping the features which have atleast 80% of data as -1. Most of these features are attributes based on the URL            parameters.
+3. Dropping the features which have atleast 80% of data as -1. Most of these features are attributes based on the URL  parameters.
 4. Replacing the -1 values with NAN values.
 
 * Missing Data
-![Missing Data](images/missingdata.png)
+
+<img src="https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/missingdata.png?raw=true" width="500" height="500" >
 
 5. We can infer from the above fig.5 that we still have missing values. To deal with these missing data we can use different      imputation techniques such as Mean/Median/Mode imputation or use imputer algorithms like KNNimputer(), MissForest().  We        have decided to approach this problem by using both the Mean mpuation and KNN imputation and later compare results.
 
@@ -65,13 +66,16 @@ The following are the sequential steps which we followed for the data preprocess
 Below figures are the metrics obtained after training the models and scoring on test data.
 
 * Logistic Regression performance metrics:
-![Logistic Regression performance metrics](./images/metrics_lr.png)
+
+![Logistic Regression performance metrics](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/metrics_lr.png?raw=true)
 
 * XGBoost performance metrics: 
-![XGBoost performance metrics](./images/xgboostmetrics.png)
+
+![XGBoost performance metrics](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/xgboostmetrics.png)
 
 * RandomForest performance metrics:
-![RandomForest performance metrics](./images/randomforestmetrics.png)
+
+![RandomForest performance metrics](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/randomforestmetrics.png)
 
 ### Feature Importance & Selection:
 * Examining the model's coefficients is the simplest technique to analyze feature importances. It has some influence on the forecast if the assigned coefficient is a large (negative or positive) number. If the coefficient is zero, on the other hand, it has no bearing on the forecast.For Logistic Regression the feature importances is derived from their respective coefficients.
@@ -81,48 +85,83 @@ Below figures are the metrics obtained after training the models and scoring on 
 Below are figures of feature importances using 3 models:
 
 * Feature Importance Logistic Regression
-![feature importance logistic_regression](./images/featureimportancelogisticregression.png)
+
+![feature importance logistic_regression](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/featureimportancelogisticregression.png)
 
 * Feature Importance XGBOOST
-![feature importance XGboost](./images/featureimportanceXGboost.png)
+
+![feature importance XGboost](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/featureimportanceXGboost.png)
 
 * Feature Importance RandomForest
-![feature importance randomforest](./images/featureimportancerandomforest.png)
+
+![feature importance randomforest](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/featureimportancerandomforest.png)
 
 * Implementing Recursive Feature Elimination (RFECV) to obtain optimal features. This algorithm calculates the importance of each feature in a recursive manner, then discards the least important feature. It begins by determining the relevance of each column's feature. It then deletes the column with the lowest relevance score and repeats the process. 
 
 Parameters:
 `estimator_: RandomForestClassifier(); cv_: StratifiedKFold(3); Scoring_:’accuracy’`
 
-![Cross-validation vs features selected RFECV](./images/RFECV.png)
+![Cross-validation vs features selected RFECV](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/RFECV.png)
 
 From the above figure, We can observe that the cross-validation accuracy score doesn't change after selecting 30 features; it flattens as the number of features selected increases. Training our models on these top 30 features should increase the performance of the model.
 
 ## Mean Imputed Data Analysis:
+In this Mean Imputed Data Analysis part we have calculated the Mean of each column and have replaced the NAN values with those values.In future we plan to impute the data using different techniques.So, once the data is as been imputed with the Mean we try to train the XGBoost Classifier using the imputed data inorder to find the important features.
 
-Correlation:
-Later a heatmap is plotted to find the correlation between different features.
-These correletation are printed.
+* Feature Importance XGBOOST
 
-Outliers: 
-The outliers are detected using the z score. In this methodology, the threshold is kept to 3. 
-Using IQR, the outliers are removed, and a new dataset is generated. 
+ ![feature importance XGboost](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/XGBoost_featureImportance.png)
+
+From the above graph we can clearly depict the important features and then we consider the first 9 features because after that we can clearly see that the importance becomes constant.
+
+### Analysis of the Important Features:
+Now we do the basic analysis on the features which we have selected and then try to find the distribution of data and then we try to Feature engineering.So, at first we plot the box plots inorder to depict the Outliers.
+
+![BoxPlot](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/Boxplot_for_outliers.png)
+
+we can clearly see that the outliers exist in the above features like length_url,qty_slash_url. Now we try to plot the Violin plot for the remaining features inorder to find the distribution of the data.
+
+![Violinplot](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/violin_plot.png)
+
+#### Outliers: 
+Earlier we observed the outliers on the selected features.So, now we try to remove the outliers from the selected columns using the Inter Quartile Range (IQR) methodology.
+
+#### Correlation:
+After the data has been modified we try to find the correlation between the features and the target variable 'Phishing'. We can use heatMap to visualise this.
+
+![HeatMap](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/Heatmap.PNG)
+
+From the above graph we can clearly say that there a negative correlation between for the feature time_domain_activation and phishing, a positive correlation between features like qty_slash_url and phishing is found.
+
+#### Relativity:
+Here we try to find the relation between the length features and the phishing feature.
+![](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/directory_length_trend.png)
+
+![](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/length_url_trend.png)
+
+From the above graph can clearly see that as the as the length of URL, Directory Length increases it is most likely to be a phishing website.
+
+By the Below scatter plot we can see that the probability of URl is phishing if the value lies between 0 and 5 for the features qty_percent_file,qty_hyphen_directory
+
+![](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/scatter_plot%201.png?raw=true)
+
+Likewise the below scatter plot we can see that the probability of URl is phishing is more as the value of qty_slash_url is more than 4.
+
+![](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/scatter_plot%202.png)
 
 Modeling: 
-The accuracy is retrieved using three different models. They are: 
+The accuracy is retrieved using two different models. They are: 
 
-* Decision Tree:
-Decision tree is a predictive modelling approaches used in data mining.  It is constructed through algorithmic approach that identifies differents methods of splitting a data set based on different conditions. 
-The accuracy found through decision tree is 95.65%
+* Logistic Regression:
+It is used in statistical software to understand the relationship between the dependent variable and one or more independent variables by estimating probabilities using a logistic regression equation.
+The accuracy found through Random Forest is 85.6% 
 
-* Random Forest:
-When a large number of decision tree operate as an ensemble, they make up Random Forest. Each tree in the random forest produces a class prediction, and the class with the most votes becomes the prediction of our model. The accuracy found through Random Forest is 97.52% 
+* KNeighbors Classifier:
+The k-nearest neighbors (KNN) algorithm is a simple, supervised machine learning algorithm that can be used to solve both classification and regression problems. 
+The accuracy found through decision tree is 89.61%
 
-* KNN:
-KNN is a machine learning algorithm based on Supervised Learning technique. It assumes similarity between new data and available data and put new data into category that seems most similar to available categories. 
-The accuracy found was 97.29%
 
-It is concluded that the Random forest detected the best accuracy. 
+It is concluded that the KNeighbors detected the best accuracy. 
 
 
 
