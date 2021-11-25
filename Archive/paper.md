@@ -147,18 +147,29 @@ Likewise the below scatter plot we can see that the probability of URl is phishi
 ![](https://github.com/SaiGowtham-11/Discover-Malicious-Websites-Using-Data-Mining-Algorithms/blob/main/images/scatter_plot%202.png)
 
 Modeling: 
-The accuracy is retrieved using two different models. They are: 
-
+The accuracy is retrieved using different models. The first two models were trained on Mean imputed data while the other models were trained on KNN imputed data. They are:  
 * Logistic Regression:
 It is used in statistical software to understand the relationship between the dependent variable and one or more independent variables by estimating probabilities using a logistic regression equation.
-The accuracy found through Random Forest is 85.6% 
+The accuracy found through logistic regression is 85.6% 
 
 * KNeighbors Classifier:
 The k-nearest neighbors (KNN) algorithm is a simple, supervised machine learning algorithm that can be used to solve both classification and regression problems. 
-The accuracy found through decision tree is 89.61%
+The accuracy found is 89.61%
+
+* Decision Tree:
+Decision tree is a predictive modelling approaches used in data mining.  It is constructed through algorithmic approach that identifies differents methods of splitting a data set based on different conditions. 
+The accuracy found through decision tree is 95.65%
+
+* Random Forest:
+When a large number of decision tree operate as an ensemble, they make up Random Forest. Each tree in the random forest produces a class prediction, and the class with the most votes becomes the prediction of our model. The accuracy found through Random Forest is 97.52% 
+
+* KNN:
+KNN is a machine learning algorithm based on Supervised Learning technique. It assumes similarity between new data and available data and put new data into category that seems most similar to available categories. 
+The accuracy found is 97.29%
 
 
-It is concluded that the KNeighbors detected the best accuracy. 
+
+It is concluded that the KNeighbors for KNN imputed data detected the best accuracy. 
 
 
 
