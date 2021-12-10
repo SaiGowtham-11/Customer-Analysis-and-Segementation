@@ -35,7 +35,7 @@ The goal of our project is to find the best optimal data mining algorithm based 
 
 ### _Packages Required to Run the Notebook_ ### 
 
-Install Missing No library 
+Install Missing No library, 
 pip install missingpy
 
 
